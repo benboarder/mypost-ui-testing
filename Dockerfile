@@ -35,10 +35,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     unzip \
     xz-utils \
     libgconf-2-4 \
+    apt-utils \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && mkdir /protractor
 
+COPY webdriver-versions.js ./
 RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
     node ./webdriver-versions.js --chromedriver 2.32 && \
     webdriver-manager update && \
