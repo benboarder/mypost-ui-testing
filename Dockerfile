@@ -42,7 +42,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY webdriver-versions.js ./
 RUN npm install -g protractor@4.0.14 minimist@1.2.0 && \
-    node ./webdriver-versions.js --chromedriver 2.32 && \
+    # node ./webdriver-versions.js --chromedriver 2.32 && \
     webdriver-manager update && \
     echo 'deb http://deb.debian.org/debian jessie-backports main' > /etc/apt/sources.list.d/jessie-backports.list
 
